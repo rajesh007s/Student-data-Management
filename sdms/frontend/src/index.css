@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface-light dark:bg-surface-dark text-ink-900 dark:text-ink-50 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-brass-200 text-ink-900;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brass-500 ring-offset-2 ring-offset-surface-light dark:ring-offset-surface-dark;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .ledger-table th {
+    @apply text-left text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-300 py-3 px-4 border-b border-ink-100 dark:border-ink-700;
+  }
+  .ledger-table td {
+    @apply py-3 px-4 border-b border-ink-50 dark:border-ink-800 text-sm;
+  }
+  .ledger-table tr:hover td {
+    @apply bg-ink-50/60 dark:bg-ink-800/40;
+  }
+}
+
+/* Thin scrollbars for a cleaner registrar feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ink-200 dark:bg-ink-700 rounded-full;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
